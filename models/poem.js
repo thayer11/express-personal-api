@@ -1,10 +1,13 @@
-var mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+var mongoose = require('mongoose');
 
-var PoemSchema = new Schema({
-description: String
- });
+var PoemSchema = new mongoose.Schema({
+  book: String,
+  author: String,
+  poem: String,
 
-var Poems = mongoose.model('Poems', PoemSchema);
+});
+
+var Poems = mongoose.model("Poems", PoemSchema);
 
 module.exports = Poems;
+
