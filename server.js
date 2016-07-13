@@ -72,6 +72,13 @@ app.put('/api/poems/:id', function update(req, res) {
   });
 });
 
+app.delete('/api/poems/:id', function (req, res) {
+ var oneToDelete = req.params.id;
+ db.Poem.findOneAndRemove({ _id: oneToDelete}, function (err, deletedPoem) {
+   res.json(deletedPoem);
+ });
+});
+
 
 /*
  * JSON API Endpoints
