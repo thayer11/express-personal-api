@@ -7,7 +7,7 @@ var PoemSchema = new mongoose.Schema({
 
 });
 
-var Poems = mongoose.model("Poems", PoemSchema);
+var Poem = mongoose.model("Poems", PoemSchema);
 
-module.exports = Poems;
+module.exports = Poem;
 

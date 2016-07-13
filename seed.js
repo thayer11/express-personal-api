@@ -1,6 +1,3 @@
-// This file allows us to seed our application with data
-// simply run: `node seed.js` from the root of this project folder.
-
 var db = require('./models');
 
 var poems_list = [
@@ -46,31 +43,19 @@ var poems_list = [
   }
 ];
 
-// remove all records that match {} -- which means remove ALL records
-db.Poems.remove({}, function(err, poems){
+
+db.Poem.remove({}, function(err, poems){
   if(err) {
     console.log('Error occurred in remove', err);
   } else {
     console.log('removed all books');
 
-    // create new records based on the array books_list
-    db.Poems.create(poems_list, function(err, poems){
+    
+    db.Poem.create(poems_list, function(err, poems){
       if (err) { return console.log('err', err); }
-      console.log("created", Poems.length, "poems");
+      console.log("created" + poems_list.length + "poems");
       process.exit();
     });
   }
 });
 
-
-
-// var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
-
-// db.Campsite.create(new_campsite, function(err, campsite){
-//   if (err){
-//     return console.log("Error:", err);
-//   }
-
-//   console.log("Created new campsite", campsite._id)
-//   process.exit(); // we're all done! Exit the program.
-// })
