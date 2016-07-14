@@ -87,7 +87,7 @@ db.Poem.create(newPoem, function(err, poems){
     if (err){
       res.send("Error " + err);
     }
-    res.json(poem);
+    res.json(poems);
   });
 });
 
@@ -118,6 +118,8 @@ app.get('/api/profile', function index(req, res) {
    res.json({profile: profile});
    });
 
+//PUT ??
+//POST ??
 
 /**********
  * SERVER *
