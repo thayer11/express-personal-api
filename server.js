@@ -105,6 +105,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints."},
       {method: "GET", path: "/api/profile", description: "Data about me."}, // CHANGE ME
+      {method: "GET", path: "/api/poems", description: "Gets list of favorite songs."},
       {method: "GET", path: "/api/poems/:id", description: "Find one poem."},
       {method: "PUT", path: "/api/poems/:id", description: "Update a poem!"},
       {method: "DELETE", path: "/api/poems/:id", description: "Delete a poem"},
