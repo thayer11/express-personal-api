@@ -63,10 +63,24 @@ app.get('/api/poems/:id', function (req, res) {
   });
 });
 
+app.post('/api/poems', function (req, res) {
+  var newPoem = req.body;
+  console.log(newPoem);
+
+db.Poem.create(newPoem, function(err, poems){
+    if (err){
+      res.send("Error " + err);
+    }
+    res.json(poems);
+  });
+});
+
+
 app.put('/api/poems/:id', function update(req, res) {
   var updateID = req.params.id;
-  var update = req.body;
-  db.Poem.findOneAndUpdate({_id: updateID}, update, function(err, poems){
+  var updateBody = req.body;
+  console.log(updateBody);
+  db.Poem.findOneAndUpdate({_id: updateID}, updateBody, function(err, poems){
     if (err) { return console.log("create error: " + err); }
     res.json(poems);
   });
@@ -79,17 +93,6 @@ app.delete('/api/poems/:id', function (req, res) {
  });
 });
 
-app.post('/api/poems', function (req, res) {
-  var newPoem = req.body;
-  console.log(newPoem);
-
-db.Poem.create(newPoem, function(err, poems){
-    if (err){
-      res.send("Error " + err);
-    }
-    res.json(poems);
-  });
-});
 
 /*
  * JSON API Endpoints
